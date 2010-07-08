@@ -7,10 +7,10 @@ Feature: Command line
 
   Scenario: Original svn is used before mockversion is loaded
     When I run "svn --version"
-    Then I should not see "mockversion"
+    Then the output should not contain "mockversion"
 
   Scenario: mockversion talks once it is loaded
     Given mockversion is loaded
     When I run "svn --version"
-    Then I should see "mockversion"
+    Then the output should match /mockversion [0-9]\.[0-9]\.[0-9]/
 
