@@ -5,6 +5,12 @@ Feature: Command line
   As a SVN based tool developer
   I want a mock svn executable
 
-  Scenario: tool existance
+  Scenario: Original svn is used before mockversion is loaded
+    When I run "svn --version"
+    Then I should not see "mockversion"
+
+  Scenario: mockversion talks once it is loaded
+    Given mockversion is loaded
     When I run "svn --version"
     Then I should see "mockversion"
+

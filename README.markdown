@@ -4,12 +4,14 @@ mockversion
 Installation
 ------------
 
-  tbd
+  gem install mockversion
 
 Usage
 -----
 
-  tbd
+  require 'mockversion'
+  `svn`
+  => mockversion lives!
 
 Copyright
 ---------
