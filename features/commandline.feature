@@ -12,5 +12,5 @@ Feature: Command line
   Scenario: mockversion talks once it is loaded
     Given mockversion is loaded
     When I run "svn --version"
-    Then the output should match /mockversion [0-9]\.[0-9]\.[0-9]/
+    Then the output should match /mockversion \d+\.\d+\.\d+/
 
