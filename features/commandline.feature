@@ -7,10 +7,19 @@ Feature: Command line
 
   Scenario: Original svn is used before mockversion is loaded
     When I run "svn --version"
-    Then the output should not contain "mockversion"
+    Then the output should not contain "MockVersion"
 
   Scenario: mockversion talks once it is loaded
     Given mockversion is loaded
     When I run "svn --version"
-    Then the output should match /mockversion \d+\.\d+\.\d+/
+    Then the output should match /MockVersion \d+\.\d+\.\d+/
 
+  Scenario: help is provided in the absence of a command
+    Given mockversion is loaded
+    When I run "svn"
+    Then the output should contain a help message
+
+  Scenario: help is provided for a help command
+    Given mockversion is loaded
+    When I run "svn help"
+    Then the output should contain a help message

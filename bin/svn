@@ -4,4 +4,16 @@ $LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
 
 require 'mockversion/environment'
 
-puts "mockversion #{MockVersion::VERSION}"
+args = ARGV
+command = args.shift.strip rescue 'help'
+
+case command
+when "--version"
+  puts "MockVersion #{MockVersion::VERSION}"
+when "help"
+  puts "MockVersion - A mock for the svn commandline to help tool development"
+  puts ""
+  puts "  Usage:"
+  puts "    mockversion --version"
+end
+
