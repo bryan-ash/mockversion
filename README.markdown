@@ -4,14 +4,14 @@ mockversion
 Installation
 ------------
 
-  gem install mockversion
+    gem install mockversion
 
 Usage
 -----
 
-  require 'mockversion'
-  `svn`
-  => mockversion lives!
+    require 'mockversion'
+    `svn`
+    => mockversion lives!
 
 Copyright
 ---------
