@@ -1,5 +1,5 @@
 # MockVersion
-* A mock for the svn command line, created to help tool development *
+_A mock for the svn command line, created to help tool development_
 
 ## Installation
     gem install mockversion
