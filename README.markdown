@@ -9,7 +9,11 @@ Installation
 Usage
 -----
     require 'mockversion'
+
     `svn help`
+    => Mockversion - A mock for the svn command line, created to help tool development"
+
+    `svnadmin help`
     => Mockversion - A mock for the svn command line, created to help tool development"
 
 Copyright
