@@ -8,3 +8,18 @@ Feature: svnadmin create
     When I run "svnadmin create repo"
     Then the following directories should exist:
       | .mockversion |
+
+  Scenario: verifying an existing repository succeeds
+    When I run "svnadmin create repo"
+    When I run "svnadmin verify repo"
+    Then it should pass with:
+      """
+      * Verified revision 0.
+      """
+
+  Scenario: verifying an existing repository fails
+    When I run "svnadmin verify repo"
+    Then it should fail with:
+      """
+      Can't open
+      """

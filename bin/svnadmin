@@ -21,4 +21,13 @@ when "help"
   puts ""
 when "create"
   FileUtils.mkdir ".mockversion"
+  FileUtils.mkdir ".mockversion/#{args.first}"
+when "verify"
+  if File.directory?(".mockversion/#{args.first}")
+    puts "* Verified revision 0."
+  else
+    puts "Can't open"
+    exit 1
+  end
+
 end
