@@ -3,6 +3,7 @@
 $LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
 
 require 'mockversion/environment'
+require 'fileutils'
 
 args = ARGV
 command = args.shift.strip rescue 'help'
@@ -18,5 +19,6 @@ when "help"
   puts "    `#{__FILE__} help`"
   puts "    => Mockversion - A mock for the svn command line, created to help tool development"
   puts ""
+when "create"
+  FileUtils.mkdir ".mockversion"
 end
-
