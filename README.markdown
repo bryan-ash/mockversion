@@ -1,15 +1,13 @@
-# MockVersion - A mock for the svn command line, created to help tool development
+# MockVersion
+* A mock for the svn command line, created to help tool development *
 
-Installation
-------------
+## Installation
     gem install mockversion
 
-Usage
------
+## Usage
     require 'mockversion'
     `svn help`
     => Mockversion - A mock for the svn command line, created to help tool development"
 
-Copyright
----------
+## Copyright
 Copyright (c) 2010 Bryan Ash.  See LICENSE for details.
