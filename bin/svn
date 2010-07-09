@@ -11,9 +11,12 @@ case command
 when "--version"
   puts "MockVersion #{MockVersion::VERSION}"
 when "help"
-  puts "MockVersion - A mock for the svn commandline to help tool development"
+  puts "MockVersion - A mock for the svn command line, created to help tool development"
   puts ""
   puts "  Usage:"
-  puts "    mockversion --version"
+  puts "    require 'mockversion'"
+  puts "    `svn help`"
+  puts "    => Mockversion - A mock for the svn command line, created to help tool development"
+  puts ""
 end
 

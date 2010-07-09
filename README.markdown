@@ -10,8 +10,8 @@ Usage
 -----
 
     require 'mockversion'
-    `svn`
-    => mockversion lives!
+    `svn help`
+    => Mockversion - A mock for the svn command line, created to help tool development"
 
 Copyright
 ---------
