@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
+
+require 'mockversion/environment'
+
+args = ARGV
+command = args.shift.strip rescue 'help'
+
+case command
+when "--version"
+  puts "MockVersion #{MockVersion::VERSION}"
+when "help"
+  puts "MockVersion - A mock for the svn command line, created to help tool development"
+  puts ""
+  puts "  Usage:"
+  puts "    require 'mockversion'"
+  puts "    `#{__FILE__} help`"
+  puts "    => Mockversion - A mock for the svn command line, created to help tool development"
+  puts ""
+end
+

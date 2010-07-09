@@ -9,17 +9,32 @@ Feature: Command line
     When I run "svn --version"
     Then the output should not contain "MockVersion"
 
-  Scenario: mockversion talks once it is loaded
+    When I run "svnadmin --version"
+    Then the output should not contain "MockVersion"
+
+  Scenario Outline: mockversion talks once it is loaded
     Given mockversion is loaded
-    When I run "svn --version"
+    When I run "<command> --version"
     Then the output should match /MockVersion \d+\.\d+\.\d+/
+  Examples:
+    | command  |
+    | svn      |
+    | svnadmin |
 
-  Scenario: help is provided in the absence of a command
+  Scenario Outline: help is provided in the absence of a command
     Given mockversion is loaded
-    When I run "svn"
+    When I run "<command>"
     Then the output should contain a help message
+  Examples:
+    | command  |
+    | svn      |
+    | svnadmin |
 
-  Scenario: help is provided for a help command
+  Scenario Outline: help is provided for a help command
     Given mockversion is loaded
-    When I run "svn help"
+    When I run "<command> help"
     Then the output should contain a help message
+  Examples:
+    | command  |
+    | svn      |
+    | svnadmin |
