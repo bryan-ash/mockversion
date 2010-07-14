@@ -17,7 +17,7 @@ Feature: svnadmin create
       * Verified revision 0.
       """
 
-  Scenario: verifying an existing repository fails
+  Scenario: verifying a non-existant repository fails
     When I run "svnadmin verify repo"
     Then it should fail with:
       """
