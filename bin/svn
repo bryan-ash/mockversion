@@ -2,7 +2,7 @@
 
 $LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
 
-require 'mockversion/environment'
+require 'mockversion'
 
 args = ARGV
 command = args.shift.strip rescue 'help'
@@ -18,5 +18,14 @@ when "help"
   puts "    `svn help`"
   puts "    => Mockversion - A mock for the svn command line, created to help tool development"
   puts ""
+when "checkout"
+  repo = MockVersion::Repository.load_from_path(args[0])
+  repo.checkout_to(args[1])
+when "add"
+  working_copy = MockVersion::WorkingCopy.load
+  working_copy.add(args.first)
+when "commit"
+  working_copy = MockVersion::WorkingCopy.load
+  working_copy.commit(args[1])
 end
 

@@ -2,8 +2,7 @@
 
 $LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
 
-require 'mockversion/environment'
-require 'fileutils'
+require 'mockversion'
 
 args = ARGV
 command = args.shift.strip rescue 'help'
@@ -20,13 +19,7 @@ when "help"
   puts "    => Mockversion - A mock for the svn command line, created to help tool development"
   puts ""
 when "create"
-  FileUtils.makedirs ".mockversion/#{args.first}"
+  MockVersion::Repository.create(args.first)
 when "verify"
-  if File.directory?(".mockversion/#{args.first}")
-    puts "* Verified revision 0."
-  else
-    puts "Can't open"
-    exit 1
-  end
-
+  MockVersion::Repository.verify(args.first)
 end
