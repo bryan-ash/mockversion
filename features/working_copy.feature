@@ -9,13 +9,16 @@ Feature: Working copy
     When  I run "svn checkout /repos/repo ."
     Then  the following directories should exist:
       | .svn |
-@wip
-  Scenario: checkout creates a .svn directory
+
+  Scenario: checkout retrieves a file into the working copy
     Given a repoistory at "/repos/repo" with:
       | revision | action | filename |
       |    123   | add    | file1    |
 
     When I run "svn checkout /repos/repo ."
 
-    Then the following files should exist:
+    Then the following directories should exist:
+      | .svn  |
+    And the following files should exist:
       | file1 |
+
