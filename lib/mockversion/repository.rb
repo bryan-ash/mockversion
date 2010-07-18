@@ -24,20 +24,25 @@ module MockVersion
 
     def initialize(path)
       @repo_path = path
-      @revisions = [0]
+      @revisions = [Revision.new]
     end
 
     def verify
-      puts @revisions.map { |revision| "* Verified revision #{revision}.\n" }
+      puts @revisions.map { |revision| "* Verified revision #{revision.number}.\n" }
     end
 
     def checkout_to(path)
       WorkingCopy.create(@repo_path, path)
+      @revisions.last.checkout_to(path)
+    end
+
+    def add_revision(revision)
+      @revisions << revision
+      save
     end
 
     def create_new_revision
-      @revisions << 1
-      save
+      add_revision(Revision.new(1))
     end
 
     def save
