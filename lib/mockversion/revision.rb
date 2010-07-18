@@ -8,7 +8,7 @@ module MockVersion
     end
 
     def checkout_to(path)
-      @files.each do |filename|
+      files.each do |filename|
         File.open("#{path}/#{filename}", "w") { |file| file.puts @number }
       end
     end
