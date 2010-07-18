@@ -33,7 +33,12 @@ module MockVersion
 
     def checkout_to(path)
       WorkingCopy.create(@repo_path, path)
-      @revisions.last.checkout_to(path)
+      @revisions.last.export_to(path)
+    end
+
+    def export_to(path)
+      WorkingCopy.create(@repo_path, path)
+      @revisions.last.export_to(path)
     end
 
     def add_revision(revision)

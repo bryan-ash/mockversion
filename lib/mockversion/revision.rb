@@ -7,7 +7,7 @@ module MockVersion
       @number = number
     end
 
-    def checkout_to(path)
+    def export_to(path)
       files.each do |filename|
         File.open("#{path}/#{filename}", "w") { |file| file.puts @number }
       end

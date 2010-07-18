@@ -21,6 +21,9 @@ when "help"
 when "checkout"
   repo = MockVersion::Repository.load_from_path(args[0])
   repo.checkout_to(args[1])
+when "export"
+  repo = MockVersion::Repository.load_from_path(args[0])
+  repo.export_to(args[1])
 when "add"
   working_copy = MockVersion::WorkingCopy.load
   working_copy.add(args.first)
