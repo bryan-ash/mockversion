@@ -1,9 +1,10 @@
 module MockVersion
   class Revision
 
-    attr_reader :number
+    attr_accessor :number
+    attr_accessor :files
 
-    def initialize(number = 0)
+    def initialize(number = '0')
       @number = number
     end
 

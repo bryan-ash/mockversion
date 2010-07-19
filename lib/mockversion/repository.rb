@@ -36,9 +36,14 @@ module MockVersion
       @revisions.last.export_to(path)
     end
 
-    def export_to(path)
-      WorkingCopy.create(@repo_path, path)
-      @revisions.last.export_to(path)
+    def export_revision_to_path(revision_id, path)
+      if revision_id == "HEAD"
+        revision = @revisions.last
+      else
+        revision = @revisions.find { |revision| revision.number == revision_id }
+      end
+      
+      revision.export_to(path)
     end
 
     def add_revision(revision)
@@ -46,8 +51,17 @@ module MockVersion
       save
     end
 
-    def create_new_revision
-      add_revision(Revision.new(1))
+    def create_new_revision(number = '1')
+      last_lower_revision = last_revision_lower_than(number)
+      new_revision = last_lower_revision.dup
+      new_revision.files = last_lower_revision.files.dup
+      new_revision.number = number
+      add_revision(new_revision)
+      new_revision
+    end
+
+    def last_revision_lower_than(number)
+      @revisions.find_all { |revision| revision.number < number }.last
     end
 
     def save

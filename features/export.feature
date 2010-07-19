@@ -4,7 +4,6 @@ Feature: svn export
   Background:
     Given mockversion is loaded
 
-@wip
   Scenario: export retrieves a file but does not create a working copy
     Given a repoistory at "/repos/repo" with:
       | revision | action | filename |
@@ -16,3 +15,19 @@ Feature: svn export
       | .svn  |
     And the following files should exist:
       | file1 |
+
+@wip
+  Scenario: export a specific revision
+    Given a repoistory at "/repos/repo" with:
+      | revision | action | filename |
+      |    123   | add    | file1    |
+      |    124   | add    | file2    |
+      |    125   | add    | file3    |
+
+    When I run "svn export -r 124 /repos/repo ."
+
+    Then the following files should exist:
+      | file1 |
+      | file2 |
+    And the following files should not exist:
+      | file3 |
