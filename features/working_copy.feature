@@ -11,7 +11,7 @@ Feature: Working copy
       | .svn |
 
   Scenario: checkout retrieves a file into the working copy
-    Given a repoistory at "/repos/repo" with:
+    Given a repository at "/repos/repo" with:
       | revision | action | filename |
       |    123   | add    | file1    |
 

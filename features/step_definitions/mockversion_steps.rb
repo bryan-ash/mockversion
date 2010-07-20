@@ -1,4 +1,4 @@
-Given /^a repoistory at "([^\"]*)" with:$/ do |path, table|
+Given /^a repository at "([^\"]*)" with:$/ do |path, table|
   in_current_dir do
     repository = MockVersion::Repository.new(path)
     table.hashes.each do |file|

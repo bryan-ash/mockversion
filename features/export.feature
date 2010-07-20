@@ -5,7 +5,7 @@ Feature: svn export
     Given mockversion is loaded
 
   Scenario: export retrieves a file but does not create a working copy
-    Given a repoistory at "/repos/repo" with:
+    Given a repository at "/repos/repo" with:
       | revision | action | filename |
       |    123   | add    | file1    |
 
@@ -16,9 +16,8 @@ Feature: svn export
     And the following files should exist:
       | file1 |
 
-@wip
   Scenario: export a specific revision
-    Given a repoistory at "/repos/repo" with:
+    Given a repository at "/repos/repo" with:
       | revision | action | filename |
       |    123   | add    | file1    |
       |    124   | add    | file2    |

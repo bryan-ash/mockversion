@@ -1,7 +1,7 @@
 Feature: Command line
 
   In order to demonstrate tools features during development
-  As a SVN based tool developer
+  As an SVN based tool developer
   I want a mock svn executable
 
   Scenario Outline: Original svn is used before mockversion is loaded
