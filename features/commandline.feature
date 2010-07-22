@@ -13,7 +13,7 @@ Feature: Command line
     | svnadmin |
 
   Scenario Outline: mockversion talks once it is loaded
-    Given mockversion is loaded
+    Given I am using mockversion
     When I run "<command> --version"
     Then the output should match /MockVersion \d+\.\d+\.\d+/
   Examples:
@@ -22,7 +22,7 @@ Feature: Command line
     | svnadmin |
 
   Scenario Outline: help is provided in the absence of a command
-    Given mockversion is loaded
+    Given I am using mockversion
     When I run "<command>"
     Then the output should contain a help message
   Examples:
@@ -31,7 +31,7 @@ Feature: Command line
     | svnadmin |
 
   Scenario Outline: help is provided for a help command
-    Given mockversion is loaded
+    Given I am using mockversion
     When I run "<command> help"
     Then the output should contain a help message
   Examples:

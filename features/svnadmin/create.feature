@@ -2,7 +2,7 @@
 Feature: svnadmin create
 
   Background:
-    Given mockversion is loaded
+    Given I am using mockversion
 
   Scenario: A directory is created for data storage
     When I run "svnadmin create /repos/repo"

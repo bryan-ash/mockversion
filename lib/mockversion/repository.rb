@@ -1,3 +1,4 @@
+require 'mockversion/revision'
 require 'fileutils'
 require 'yaml'
 

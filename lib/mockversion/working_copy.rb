@@ -1,3 +1,4 @@
+require 'mockversion/repository'
 require 'fileutils'
 
 module MockVersion

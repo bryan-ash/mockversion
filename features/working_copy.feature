@@ -2,7 +2,7 @@
 Feature: Working copy
 
   Background:
-    Given mockversion is loaded
+    Given I am using mockversion
 
   Scenario: checkout creates a .svn directory
     Given I run "svnadmin create /repos/repo"

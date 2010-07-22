@@ -2,7 +2,7 @@
 Feature: svn export
 
   Background:
-    Given mockversion is loaded
+    Given I am using mockversion
 
   Scenario: export retrieves a file but does not create a working copy
     Given a repository at "/repos/repo" with:

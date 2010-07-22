@@ -2,7 +2,7 @@
 Feature: Adding and committing files
 
   Background:
-    Given mockversion is loaded
+    Given I am using mockversion
 
   Scenario: When a new file is committed a new revision is created
     Given a file named "file" with:

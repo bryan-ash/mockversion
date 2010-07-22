@@ -1,3 +1,10 @@
+require 'aruba'
+require 'mockversion/repository'
+
+Given /^I am using mockversion$/ do
+  load 'mockversion.rb'
+end
+
 Given /^a repository at "([^\"]*)" with:$/ do |path, table|
   in_current_dir do
     repository = MockVersion::Repository.new(path)
