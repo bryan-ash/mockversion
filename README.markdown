@@ -22,7 +22,7 @@ in features/support/env.rb:
     require 'mockversion/cucumber_steps'
 
 then in a feature:
-    Scenario: export retrieves a file but does not create a working copy
+    Scenario: export retrieves a file
       Given I am using mockversion
       And a repository at "/repos/repo" with:
         | revision | action | filename |
